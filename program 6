@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main()
+{
+int page[]={1,2,3};
+for(iny i=0;i<3;i++)
+printf("%d",page[i]);
+return 0;
+}
