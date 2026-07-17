@@ -1,0 +1,5 @@
+Start
+fd = open(file)
+read(fd)
+close(fd)
+Stop
