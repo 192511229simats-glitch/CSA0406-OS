@@ -1,0 +1,8 @@
+Start
+fd1 = open("source.txt", READ)
+fd2 = open("dest.txt", CREATE)
+while (read(fd1, buffer) > 0)
+    write(fd2, buffer)
+close(fd1)
+close(fd2)
+Stop
