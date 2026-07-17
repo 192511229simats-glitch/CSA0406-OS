@@ -1,6 +1,7 @@
 V.Sai Anugna
 192511229
 
+Question 1:
 a)Type of Operating System:
 Multi-user, Multitasking Operating System
 Justification:
@@ -18,3 +19,6 @@ If pid == 0
 Else
     Print "Parent PID =", getpid()
 Stop
+
+Question 2:
+a)
