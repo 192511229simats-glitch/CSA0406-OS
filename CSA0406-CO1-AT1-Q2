@@ -1,0 +1,5 @@
+Start
+fd = creat("student.txt")
+write(fd, "Sai Anugna")
+close(fd)
+Stop
