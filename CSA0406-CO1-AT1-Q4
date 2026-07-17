@@ -1,0 +1,7 @@
+Start
+fork()
+If Child
+    exec(new_program)
+Else
+    wait()
+Stop                                       
