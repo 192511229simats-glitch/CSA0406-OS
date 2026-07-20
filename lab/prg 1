@@ -1,3 +1,4 @@
+program :
 #include <stdio.h>
 #include <unistd.h>
 int main()
@@ -7,3 +8,9 @@ int main()
     printf("Parent Process ID: %d\n", getppid());
     return 0;
 }
+
+output :
+Process ID: 2450
+Parent Process ID: 2300
+Process ID: 2451
+Parent Process ID: 2450
