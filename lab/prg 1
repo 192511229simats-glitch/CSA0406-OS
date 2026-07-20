@@ -1,0 +1,11 @@
+Aim :
+To create a new process using fork() and display the Process ID (PID) and Parent Process ID (PPID).
+
+Pseudocode :
+Start
+Create a new process using fork()
+If child process
+    Print child PID and PPID
+Else
+    Print parent PID and PPID
+Stop
