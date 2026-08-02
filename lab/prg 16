@@ -1,0 +1,15 @@
+#include<stdio.h>
+struct e{int id;char n[20];};
+int main()
+{
+FILE *fp=fopen("emp.dat","wb+");
+struct e x={1,"Ram"};
+fwrite(&x,sizeof(x),1,fp);
+rewind(fp);
+fread(&x,sizeof(x),1,fp);
+printf("%d %s",x.id,x.n);
+fclose(fp);
+}
+
+output:
+1 Ram
