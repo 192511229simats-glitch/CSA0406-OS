@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+char u[20],f[5][20];
+int n,i;
+scanf("%s%d",u,&n);
+for(i=0;i<n;i++)scanf("%s",f[i]);
+printf("%s\n",u);
+for(i=0;i<n;i++)printf("%s\n",f[i]);
+}
+
+input:
+User1
+3
+a.txt
+b.txt
+c.txt
+
+output:
+User1
+a.txt
+b.txt
+c.txt
