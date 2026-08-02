@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+int b[3]={100,200,300},p[3]={90,150,250},i,j;
+for(i=0;i<3;i++)
+for(j=0;j<3;j++)
+if(b[j]>=p[i]){
+printf("P%d->B%d\n",i+1,j+1);
+b[j]-=p[i];
+break;
+}
+}
+
+output:
+P1->B1
+P2->B2
+P3->B3
