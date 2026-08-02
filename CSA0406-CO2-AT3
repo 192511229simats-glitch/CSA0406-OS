@@ -1,0 +1,48 @@
+V.Sai Anugna
+192511229
+
+1st Question:
+
+Condition causing deadlock:
+A deadlock occurs because P1 locks R1 first and waits for R2, while P2 locks R2 first and waits for R1. Both processes hold one resource and wait indefinitely for the other (circular wait).
+
+Optimization:
+Use a fixed resource allocation order (both processes should lock R1 first, then R2).
+Alternatively, use trylock() or a deadlock detection mechanism.
+
+2nd Question:
+
+Cause:
+The processes repeatedly move between Ready and Waiting states because they are I/O-bound. The CPU remains idle while waiting for I/O operations, resulting in only 30% CPU utilization.
+
+System-level Optimization:
+Increase the degree of multiprogramming so another process can execute while one waits for I/O.
+Improve I/O performance using asynchronous I/O or DMA (Direct Memory Access).
+
+3rd Question:
+
+Memory Issue:
+The application experiences frequent page faults because the large heap (150 MB) and memory used by 25 threads (25 MB stack) lead to inefficient memory access, causing frequent page swapping (thrashing).
+
+Optimizations:
+Reduce the number of threads or use a thread pool.
+Optimize heap usage by releasing unused memory and improving memory allocation.
+
+4th Question:
+
+Root Cause:
+Process P5 is in the lowest-priority queue (Q3). Since higher-priority queues (Q1 and Q2) always have processes, P5 never gets CPU time, causing starvation.
+
+Optimization:
+Apply aging to gradually increase P5's priority.
+Use priority boosting after a fixed time interval.
+
+5th Question:
+
+Reason for High Context Switching:
+The time quantum (1 ms) is smaller than the average CPU burst time (2 ms), causing frequent preemption.
+Very frequent I/O waits also force additional context switches.
+
+Optimizations:
+Increase the time quantum (e.g., from 1 ms to 4–5 ms).
+Reduce I/O waits using asynchronous I/O or improve thread scheduling with a thread pool.
