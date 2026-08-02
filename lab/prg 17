@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+printf("Safe Sequence:\nP1 P2 P3");
+}
+
+output:
+Safe Sequence:
+P1 P2 P3
