@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+printf("Producer Produced\n");
+printf("Consumer Consumed\n");
+}
+
+output:
+Producer Produced
+Consumer Consumed
