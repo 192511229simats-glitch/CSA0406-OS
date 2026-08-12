@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main()
+{
+ int b[10],p[10],m,n,i,j,w;
+ printf("Blocks: "); scanf("%d",&m);
+ for(i=0;i<m;i++) scanf("%d",&b[i]);
+ printf("Processes: "); scanf("%d",&n);
+ for(i=0;i<n;i++) scanf("%d",&p[i]);
+
+ for(i=0;i<n;i++)
+ {
+  w=-1;
+  for(j=0;j<m;j++)
+   if(b[j]>=p[i] && (w==-1 || b[j]>b[w])) w=j;
+  if(w!=-1){ printf("P%d -> B%d\n",i+1,w+1); b[w]-=p[i];}
+  else printf("P%d -> Not Allocated\n",i+1);
+ }
+}
+
+input:
+5
+100 500 200 300 600
+4
+212 417 112 426
+
+output:
+P1 -> B5
+P2 -> B2
+P3 -> B5
+P4 -> Not Allocated
