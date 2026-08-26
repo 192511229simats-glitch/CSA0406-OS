@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+ FILE*f=fopen("a.txt","r");char s[100],w[20];
+ scanf("%s",w);
+ while(fgets(s,100,f))
+  if(strstr(s,w))printf("%s",s);
+ fclose(f);
+}
+
+input:
+Operating System
+C programming
+Operating System lab
+
+output:
+Operating System
+Operating System lab
