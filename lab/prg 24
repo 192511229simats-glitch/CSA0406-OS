@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main(){
+ int f; char s[50];
+ f=open("a.txt",O_CREAT|O_RDWR,0644);
+ write(f,"Hello UNIX",10);
+ lseek(f,0,SEEK_SET);
+ int n=read(f,s,50);
+ write(1,s,n);
+ close(f);
+}
+
+input:
+Hello UNIX
+
+output:
+Hello UNIX
