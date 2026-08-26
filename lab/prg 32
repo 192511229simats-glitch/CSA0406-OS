@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main(){
+ int a[20],f[10],t[10],n,m,i,j,k,p=0,min,hit;
+ scanf("%d",&m);
+ for(i=0;i<m;i++)f[i]=-1,t[i]=0;
+ scanf("%d",&n);
+ for(i=0;i<n;i++){
+  scanf("%d",&a[i]);hit=0;
+  for(j=0;j<m;j++)if(f[j]==a[i]){hit=1;t[j]=i+1;}
+  if(!hit){
+   min=0;
+   for(j=1;j<m;j++)if(t[j]<t[min])min=j;
+   f[min]=a[i];t[min]=i+1;p++;
+  }
+ }
+ printf("Page Faults = %d",p);
+}
+
+input:
+3
+1 2 3 1 4 5
+
+output:
+Page Faults = 5
