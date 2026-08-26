@@ -1,0 +1,132 @@
+V.Sai Anugna
+192511229
+
+                       1st Question Ans:
+
+File System Space Management Algorithm :-
+BEGIN
+    SET threshold = 80%
+    usage = GET_DISK_USAGE()
+
+    IF usage > threshold THEN
+        log_files = GET_LOG_FILES()
+        SORT log_files BY size DESCENDING
+
+        FOR each file IN log_files DO
+            IF file is important THEN
+                COMPRESS or ROTATE file
+            ELSE
+                DELETE file
+            ENDIF
+
+            usage = GET_DISK_USAGE()
+
+            IF usage <= threshold THEN
+                BREAK
+            ENDIF
+        ENDFOR
+    ENDIF
+
+    PRINT current disk usage
+END
+
+Purpose: Monitors disk utilization and frees space by compressing, rotating, or deleting old log files when usage exceeds 80%.
+
+                       2nd Question Ans:
+
+ Priority-Based CPU Scheduling Algorithm:-
+BEGIN
+    INPUT process_list
+
+    WHILE process_list is NOT EMPTY DO
+        SORT process_list BY priority DESCENDING
+
+        SELECT process WITH highest priority
+
+        ALLOCATE CPU TIME to selected process
+        EXECUTE process
+
+        IF process is completed THEN
+            REMOVE process from process_list
+        ELSE
+            REDUCE priority slightly
+            ADD process back to process_list
+        ENDIF
+    ENDWHILE
+
+    PRINT "All processes completed"
+END
+
+Purpose: Gives CPU time to high-priority processes while gradually lowering the priority of processes that continue running, helping prevent starvation.
+
+                      3rd Question Ans:
+
+RAM Resource Management Among Virtual Machines:-
+BEGIN
+    total_RAM = 16GB
+    host_reserved = 4GB
+    available_RAM = total_RAM - host_reserved
+
+    INPUT number_of_VMs
+    min_RAM = 2GB
+
+    FOR i = 1 TO number_of_VMs DO
+        IF available_RAM >= min_RAM THEN
+            ALLOCATE min_RAM to VM[i]
+            available_RAM = available_RAM - min_RAM
+        ELSE
+            PRINT "Insufficient memory for VM[i]"
+        ENDIF
+    ENDFOR
+
+    PRINT "Remaining RAM =", available_RAM
+END
+
+Purpose: Reserves memory for the host and distributes the remaining RAM fairly among virtual machines while ensuring each VM receives at least 2 GB when possible.
+
+                        4th Question Ans:
+
+Hypervisor Selection Algorithm:-
+BEGIN
+    INPUT performance_required
+    INPUT budget
+    INPUT hardware_access
+
+    IF performance_required = HIGH AND hardware_access = TRUE THEN
+        selected_hypervisor = "Type 1 Hypervisor"
+
+    ELSE IF budget = LOW THEN
+        selected_hypervisor = "Type 2 Hypervisor"
+
+    ELSE
+        selected_hypervisor = "Type 1 Hypervisor"
+    ENDIF
+
+    PRINT selected_hypervisor
+END
+
+Purpose: Selects a Type 1 hypervisor when high performance and direct hardware access are required. A Type 2 hypervisor is preferred when low cost is the main constraint.
+
+                      5th Question Ans:
+
+CPU and Memory Resource Limiting:-
+BEGIN
+    INPUT application_list
+
+    FOR each app IN application_list DO
+        CREATE cgroup for app
+
+        SET CPU limit for app
+        SET memory limit for app
+
+        ASSIGN app process to cgroup
+    ENDFOR
+
+    PRINT "Resource limits applied successfully"
+END
+
+Purpose: Uses control groups (cgroups) to restrict CPU and memory consumption, preventing one application from consuming excessive system resources and improving overall system stability.
+
+
+
+
