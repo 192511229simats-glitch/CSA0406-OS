@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+ int a[20],n,i;
+ scanf("%d",&n);
+ for(i=0;i<n;i++)scanf("%d",&a[i]);
+ printf("Index Block: ");
+ for(i=0;i<n;i++)printf("%d ",a[i]);
+}
+
+input:
+4
+10 25 7 18
+
+output:
+Index Block: 10 25 7 18
