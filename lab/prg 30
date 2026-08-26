@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<pthread.h>
+
+void*f(void*x){
+ printf("Thread Created\n");
+ pthread_exit(0);
+}
+int main(){
+ pthread_t a,b;
+ pthread_create(&a,0,f,0);
+ pthread_create(&b,0,f,0);
+ if(pthread_equal(a,b))printf("Threads are Equal\n");
+ else printf("Threads are Different\n");
+ pthread_join(a,0);pthread_join(b,0);
+ printf("Thread Exited\n");
+}
+
+input:
+No input
+
+output:
+Thread Created
+Threads are Different
+Thread Exited
