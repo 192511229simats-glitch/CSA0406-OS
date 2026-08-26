@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<dirent.h>
+int main(){
+ DIR*d=opendir(".");
+ struct dirent*x;
+ while((x=readdir(d)))printf("%s\n",x->d_name);
+ closedir(d);
+}
+
+input:
+Current directory
+
+output:
+a.txt
+main.c
+test.c
