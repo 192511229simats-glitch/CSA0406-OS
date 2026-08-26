@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<dirent.h>
+int main(){
+ int f=open("a.txt",O_RDWR); struct stat s; DIR*d; struct dirent*x;
+ fcntl(f,F_GETFL); lseek(f,0,SEEK_END); stat("a.txt",&s);
+ printf("File size: %ld\n",s.st_size);
+ d=opendir("."); while((x=readdir(d)))printf("%s\n",x->d_name);
+ close(f);closedir(d);
+}
+
+input:
+a.txt
+
+output:
+File size: 10
+Directory files displayed
