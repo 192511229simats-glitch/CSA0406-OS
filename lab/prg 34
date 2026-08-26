@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+ int s,n,i;
+ scanf("%d%d",&s,&n);
+ printf("Allocated Blocks: ");
+ for(i=0;i<n;i++)printf("%d ",s+i);
+}
+
+input:
+10
+5
+
+output:
+Allocated Blocks: 10 11 12 13 14
