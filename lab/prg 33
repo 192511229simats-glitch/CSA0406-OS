@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main(){
+ int a[20],f[10],n,m,i,j,k,p=0,pos,far,x;
+ scanf("%d",&m);
+ for(i=0;i<m;i++)f[i]=-1;
+ scanf("%d",&n);
+ for(i=0;i<n;i++)scanf("%d",&a[i]);
+ for(i=0;i<n;i++){
+  for(j=0;j<m;j++)if(f[j]==a[i])break;
+  if(j==m){
+   p++;
+   for(j=0;j<m;j++)if(f[j]==-1){f[j]=a[i];break;}
+   if(j==m){
+    far=-1;
+    for(j=0;j<m;j++){
+     for(k=i+1;k<n&&a[k]!=f[j];k++);
+     if(k>far)far=k,pos=j;
+    }
+    f[pos]=a[i];
+   }
+  }
+ }
+ printf("Page Faults = %d",p);
+}
+
+input:
+3
+1 2 3 4 1 2 5
+
+output:
+Page Faults = 5
