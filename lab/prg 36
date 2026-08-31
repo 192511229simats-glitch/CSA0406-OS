@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <pthread.h>
+int buffer = 0;
+pthread_mutex_t lock;
+void *producer(void *arg) {
+pthread_mutex_lock(&lock);
+buffer++;
+printf("Producer produced item: %d\n", buffer);
+pthread_mutex_unlock(&lock);
+return NULL;
+}
+void *consumer(void *arg) {
+pthread_mutex_lock(&lock);
+printf("Consumer consumed item: %d\n", buffer);
+buffer--;
+pthread_mutex_unlock(&lock);
+return NULL;
+}
+int main() {
+pthread_t p1, p2;
+pthread_mutex_init(&lock, NULL);
+pthread_create(&p1, NULL, producer, NULL);
+pthread_create(&p2, NULL, consumer, NULL);
+pthread_join(p1, NULL);
+pthread_join(p2, NULL);
+pthread_mutex_destroy(&lock);
+return 0;
+}
+
+output:
+Producer produced item: 1
+Consumer consumed item: 1
